@@ -1,0 +1,85 @@
+html,
+body {
+  height: 100%;
+}
+.btn {
+  color: rgba(0, 0, 0, 0.527);
+  background-color: inherit;
+}
+.btn:hover {
+  background-color: bisque;
+  color: rgb(0, 0, 0);
+  border-color: inherit;
+}
+.row {
+  align-items: center;
+}
+.second-part p {
+  text-align: end;
+}
+.fixed-bottom {
+  background-color: rgb(147, 255, 255);
+}
+.col-sm .btn {
+  width: 100%;
+}
+.gap-2 {
+  align-items: center;
+}
+.mt-3 .btn {
+  margin-bottom: 15px;
+}
+.mt-5 {
+  margin-top: 120px !important;
+}
+.myCards {
+  margin-bottom: 20px;
+}
+.card-description {
+  font-size: 15px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  height: 100px;
+}
+.elem::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.d-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.d-grid p {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  text-align: right;
+}
+.card img {
+  max-height: 300px;
+}
+.card {
+  height: 550px;
+}
+.mb-3 input {
+  max-width: 239px;
+  max-height: 46.5px;
+}
+main {
+  height: 1800px;
+}
+h4 {
+  font-size: 21px;
+  height: 50px;
+}
+@media screen and (max-width: 576px) {
+  .second-part p {
+    text-align: start;
+  }
+}

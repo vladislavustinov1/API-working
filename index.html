@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Makeup API</a>
+        <div class="d-grid">
+          <a href="#" id="login"
+            ><button type="button" name="" id="" class="btn btn-primary">
+              Login
+            </button></a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- main content -->
+    <main class="main">
+      <div class="container mt-3">
+        <div class="row">
+          <!-- first select -->
+          <div class="col-sm">
+            <div class="mb-3">
+              <label for="" class="form-label" id="brand">Brand</label>
+              <select
+                class="form-select form-select-lg"
+                name=""
+                id="select-first"
+                onchange="gotValue()"
+              >
+                <option>Select brand...</option>
+                <option value="Almay">Almay</option>
+                <option value="Anna Sui">Anna Sui</option>
+                <option value="Annabelle">Annabelle</option>
+                <option value="Benefit">Benefit</option>
+                <option value="Burts Bees">Burts Bees</option>
+                <option value="Butter London">Butter London</option>
+                <option value="Cargo Cosmetics">Cargo Cosmetics</option>
+                <option value="China Glaze">China Glaze</option>
+                <option value="Covergirl">Covergirl</option>
+                <option value="Dalish">Dalish</option>
+                <option value="Dr. Hauschka">Dr. Hauschka</option>
+                <option value="e.l.f.">e.l.f.</option>
+                <option value="Essie">Essie</option>
+                <option value="Iman">Iman</option>
+                <option value="L'Oreal">L'Oreal</option>
+                <option value="Marcelle">Marcelle</option>
+                <option value="Maybelline">Maybelline</option>
+                <option value="Milani">Milani</option>
+                <option value="Mineral Fusion">Mineral Fusion</option>
+                <option value="Misa">Misa</option>
+                <option value="Mistura">Mistura</option>
+                <option value="Moov">Moov</option>
+                <option value="NYX">NYX</option>
+                <option value="Orly">Orly</option>
+                <option value="Pacifica">Pacifica</option>
+                <option value="Physicians Formula">Physicians Formula</option>
+                <option value="Piggy Paint">Piggy Paint</option>
+                <option value="Pure Anada">Pure Anada</option>
+                <option value="Revlon">Revlon</option>
+                <option value="Salon Perfect">Salon Perfect</option>
+                <option value="Sante">Sante</option>
+                <option value="Sinful Colours">Sinful Colours</option>
+                <option value="Smashbox">Smashbox</option>
+                <option value="Stila">Stila</option>
+                <option value="Suncoat">Suncoat</option>
+                <option value="Wet n' Wild">Wet n' Wild</option>
+                <option value="Zorah">Zorah</option>
+              </select>
+            </div>
+          </div>
+          <!-- second select -->
+          <div class="col-sm">
+            <div class="mb-3">
+              <label for="" class="form-label" id="production"
+                >Production</label
+              >
+              <select
+                class="form-select form-select-lg"
+                name=""
+                id="select-second"
+                onchange="gotTags()"
+              >
+                <option selected>Select production...</option>
+              </select>
+            </div>
+          </div>
+          <!-- price input -->
+          <div class="col-sm">
+            <div class="mb-3">
+              <label for="" class="form-label" id="brand">From the price</label>
+              <input
+                class="form-input form-select-lg"
+                name=""
+                id="select-third"
+                type="text"
+                onchange=""
+              >
+            </input>
+            </div>
+          </div>
+          <!-- tag select -->
+          <div class="col-sm">
+            <div class="mb-3">
+              <label for="" class="form-label" id="brand">Tag</label>
+              <select
+                class="form-select form-select-lg"
+                name=""
+                id="select-fourth"
+                onchange=""
+              >
+                <option selected>Select tags...</option>
+              </select>
+            </div>
+          </div>
+          <!-- button selection -->
+          <div class="col-sm">
+            <div class="gap-2 mt-3">
+              <button
+                type="button"
+                name=""
+                id=""
+                class="btn btn-search btn-primary"
+                onclick="gotCardsByProduction()"
+              >
+                Search by production
+              </button>
+              <button
+                type="button"
+                name=""
+                id=""
+                class="btn btn-search btn-primary"
+                onclick="gotCardsByPrice()"
+              >
+                Search by price
+              </button>
+              <button
+                type="button"
+                name=""
+                id=""
+                class="btn btn-search btn-primary"
+                onclick="gotCardsByTag()"
+              >
+                Search by tags
+              </button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+      <div class="container mt-2">
+        <div class="row" id="card_cont"></div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="fixed-bottom bg-light">
+      <div class="container footer">
+        <div class="row mb-3 mt-4">
+          <!-- first part of footer -->
+          <div class="col-sm">
+            <p>Author: Vladislav Ustinov</p>
+            <p>Year: 2023</p>
+            <p>Email: lvpd.help@gmail.com</p>
+          </div>
+          <!-- second part of footer -->
+          <div class="col-sm second-part">
+            <p>Work: async API</p>
+            <p>First part of work: create site and login panel</p>
+            <p>Second part: create JS-code for working select menu</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
