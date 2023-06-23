@@ -17,6 +17,20 @@ body {
 .second-part p {
   text-align: end;
 }
+.card-title {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0;
+  height: 45px;
+  overflow: auto;
+  scrollbar-width: none;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 .fixed-bottom {
   background-color: rgb(147, 255, 255);
 }
@@ -72,7 +86,7 @@ footer {
   max-height: 46.5px;
 }
 main {
-  height: 1800px;
+  height: 100vh;
 }
 h4 {
   font-size: 21px;

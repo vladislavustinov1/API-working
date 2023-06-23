@@ -19,9 +19,9 @@
       <div class="container">
         <a class="navbar-brand" href="#">Makeup API</a>
         <div class="d-grid">
-          <a href="#" id="login"
+          <a href="https://makeup-api.herokuapp.com/" id="info"
             ><button type="button" name="" id="" class="btn btn-primary">
-              Login
+              API Info
             </button></a
           >
         </div>
@@ -92,7 +92,6 @@
                 class="form-select form-select-lg"
                 name=""
                 id="select-second"
-                onchange="gotTags()"
               >
                 <option selected>Select production...</option>
               </select>
@@ -107,25 +106,10 @@
                 name=""
                 id="select-third"
                 type="text"
-                onchange=""
-              >
-            </input>
+              />
             </div>
           </div>
-          <!-- tag select -->
-          <div class="col-sm">
-            <div class="mb-3">
-              <label for="" class="form-label" id="brand">Tag</label>
-              <select
-                class="form-select form-select-lg"
-                name=""
-                id="select-fourth"
-                onchange=""
-              >
-                <option selected>Select tags...</option>
-              </select>
-            </div>
-          </div>
+
           <!-- button selection -->
           <div class="col-sm">
             <div class="gap-2 mt-3">
@@ -147,18 +131,8 @@
               >
                 Search by price
               </button>
-              <button
-                type="button"
-                name=""
-                id=""
-                class="btn btn-search btn-primary"
-                onclick="gotCardsByTag()"
-              >
-                Search by tags
-              </button>
             </div>
           </div>
-      
         </div>
       </div>
       <div class="container mt-2">
@@ -166,7 +140,7 @@
       </div>
     </main>
     <!-- footer -->
-    <footer class="fixed-bottom bg-light">
+    <footer class="fixed-bottom bg-light" id="footer">
       <div class="container footer">
         <div class="row mb-3 mt-4">
           <!-- first part of footer -->
