@@ -15,7 +15,7 @@
   </head>
   <body>
     <!-- navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Makeup API</a>
         <div class="d-grid">
@@ -28,8 +28,8 @@
       </div>
     </nav>
     <!-- main content -->
-    <main class="main">
-      <div class="container mt-3">
+    <main class="main mt-4">
+      <div class="container menu">
         <div class="row">
           <!-- first select -->
           <div class="col-sm">
@@ -100,7 +100,9 @@
           <!-- price input -->
           <div class="col-sm">
             <div class="mb-3">
-              <label for="" class="form-label" id="brand">From the price</label>
+              <label for="" class="form-label" id="brand"
+                >From the price(От значения)</label
+              >
               <input
                 class="form-input form-select-lg"
                 name=""
@@ -109,7 +111,19 @@
               />
             </div>
           </div>
-
+          <div class="col-sm">
+            <div class="mb-3">
+              <label for="" class="form-label" id="brand"
+                >Up to price(До значения)</label
+              >
+              <input
+                class="form-input form-select-lg"
+                name=""
+                id="select-price"
+                type="text"
+              />
+            </div>
+          </div>
           <!-- button selection -->
           <div class="col-sm">
             <div class="gap-2 mt-3">
@@ -120,7 +134,7 @@
                 class="btn btn-search btn-primary"
                 onclick="gotCardsByProduction()"
               >
-                Search by production
+                Search without filter
               </button>
               <button
                 type="button"
@@ -129,13 +143,13 @@
                 class="btn btn-search btn-primary"
                 onclick="gotCardsByPrice()"
               >
-                Search by price
+                Search with filter
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="container mt-2">
+      <div class="container mt-5">
         <div class="row" id="card_cont"></div>
       </div>
     </main>
@@ -152,7 +166,7 @@
           <!-- second part of footer -->
           <div class="col-sm second-part">
             <p>Work: async API</p>
-            <p>First part of work: create site and login panel</p>
+            <p>First part of work: create site in minimal style</p>
             <p>Second part: create JS-code for working select menu</p>
           </div>
         </div>

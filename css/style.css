@@ -17,19 +17,17 @@ body {
 .second-part p {
   text-align: end;
 }
-.card-title {
+.card-description {
   color: white;
   text-decoration: none;
   font-size: 20px;
-  margin: 0;
-  height: 45px;
-  overflow: auto;
-  scrollbar-width: none;
+  text-align: start;
+  font-size: 1rem;
 }
 .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 50px;
 }
 .fixed-bottom {
   background-color: rgb(147, 255, 255);
@@ -44,18 +42,12 @@ body {
   margin-bottom: 15px;
 }
 .mt-5 {
-  margin-top: 120px !important;
+  margin-top: 200px !important;
 }
 .myCards {
   margin-bottom: 20px;
 }
-.card-description {
-  font-size: 15px;
-  overflow: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  height: 100px;
-}
+
 .elem::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -79,7 +71,7 @@ footer {
   max-height: 300px;
 }
 .card {
-  height: 550px;
+  height: 475px;
 }
 .mb-3 input {
   max-width: 239px;
@@ -92,6 +84,15 @@ h4 {
   font-size: 21px;
   height: 50px;
 }
+.menu {
+  position: fixed;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  z-index: 999;
+}
+
 @media screen and (max-width: 576px) {
   .second-part p {
     text-align: start;

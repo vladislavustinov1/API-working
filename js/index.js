@@ -10,7 +10,8 @@ class Cards {
     priceOrig,
     i,
     delCards,
-    urlCard
+    urlCard,
+    price2
   ) {
     this.img = img;
     this.nameCard = nameCard;
@@ -22,6 +23,7 @@ class Cards {
     this.i = i;
     this.delCards = delCards;
     this.urlCard = urlCard;
+    this.price2 = price2;
   }
   createCard() {
     this.cardCount = 3;
@@ -30,10 +32,9 @@ class Cards {
     let cardsColumn = document.createElement(`div`);
     let cardsImg = document.createElement(`img`);
     let cardsBody = document.createElement(`div`);
-    let cardsTitle = document.createElement(`a`);
-    let cardsDesc = document.createElement(`p`);
+    let cardsTitle = document.createElement(`h4`);
+    let cardsDesc = document.createElement(`a`);
     let buttonBlock = document.createElement(`div`);
-    let cardsButtonBuy = document.createElement(`button`);
     let cardsPrice = document.createElement(`p`);
 
     cardsColumn.className = `col-${this.cardCount} myCards`;
@@ -50,26 +51,33 @@ class Cards {
     cardsDiv.append(cardsBody);
 
     cardsTitle.className = "card-title";
-    cardsTitle.href = `${this.urlCard}`;
     cardsTitle.title = `${this.nameCard[this.i]}`;
     cardsTitle.appendChild(document.createTextNode(`${this.nameCard[this.i]}`));
     cardsBody.prepend(cardsTitle);
 
     cardsDesc.className = `card-description`;
-    cardsDesc.textContent = `${this.descrCard[this.i]}`;
-    cardsBody.append(cardsDesc);
+    cardsDesc.id = `cads-Url`;
+    cardsDesc.href = `${this.urlCard[this.i]}`;
+    cardsDesc.appendChild(document.createTextNode(`Click for more...`));
+    buttonBlock.append(cardsDesc);
 
     buttonBlock.className = `d-grid gap-2`;
     cardsBody.append(buttonBlock);
 
     cardsPrice.textContent = `Price: ${this.priceCard[this.i]}$`;
     buttonBlock.append(cardsPrice);
+    document
+      .getElementById(`cads-Url`)
+      .addEventListener(`click`, function (event) {
+        event.preventDefault();
+        window.open(event.target.href, `_blank`);
+      });
   }
   createErrorText() {
     let cardBody = document.getElementById(`card_cont`);
     let cardError = document.createElement(`div`);
     cardError.className = `myCards`;
-    cardError.textContent = `Not found! Please, choose another product/brand`;
+    cardError.textContent = `Not found! Please, choose another product/brand or change the price values`;
     cardBody.prepend(cardError);
   }
   createCardsForProd() {
@@ -83,11 +91,21 @@ class Cards {
     }
   }
   createCardForPrice() {
+    let cardBody = document.getElementById(`card_cont`);
     for (this.i; this.i < this.brands2.length; this.i++) {
-      if (this.priceOrig <= this.priceCard[this.i]) {
+      if (
+        this.priceOrig <= this.priceCard[this.i] &&
+        this.price2 >= this.priceCard[this.i]
+      ) {
         this.createCard();
-      } else {
+      } else if (
+        this.priceOrig > this.priceCard ||
+        this.price2 < this.priceCard[this.i]
+      ) {
         continue;
+      } else if (cardBody.childNodes.length == 0) {
+        this.createErrorText();
+        break;
       }
     }
   }
@@ -181,6 +199,7 @@ async function gotCardsByPrice() {
   let brand = document.getElementById(`select-first`).value;
   let prod = document.getElementById(`select-second`).value;
   let price = document.getElementById(`select-third`).value;
+  let price2 = document.getElementById(`select-price`).value;
   let cardDelete = document.getElementsByClassName(`myCards`);
 
   let api = await fetch(
@@ -192,13 +211,11 @@ async function gotCardsByPrice() {
   let resDescr = brands.map((e) => e.description);
   let resName = brands.map((p) => p.name);
   let resUrl = brands.map((f) => f.product_link);
-  console.log(resUrl);
-  resPrice.sort((a, b) => a - b);
+  console.log(resPrice);
   parseInt(resPrice);
   parseInt(price);
+  parseInt(price2);
   console.log(resPrice);
-  console.log(price);
-  console.log(price > resPrice[0]);
   if (api.ok) {
     while (cardDelete.length > 0) {
       cardDelete[0].remove();
@@ -214,7 +231,8 @@ async function gotCardsByPrice() {
       price,
       0,
       cardDelete,
-      resUrl
+      resUrl,
+      price2
     );
     card.createCardForPrice();
   }
