@@ -1,22 +1,36 @@
 html,
 body {
   height: 100%;
+  font-family: "Ubuntu", sans-serif;
 }
 .btn {
   color: rgba(0, 0, 0, 0.527);
   background-color: inherit;
+  -webkit-transition: 0.4s all;
+  -o-transition: 0.4s all;
+  transition: 0.4s all;
 }
 .btn:hover {
+  border-radius: 35px;
   background-color: bisque;
   color: rgb(0, 0, 0);
   border-color: inherit;
 }
 .row {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 .second-part p {
   text-align: end;
 }
+.form-select {
+  border-radius: 33px;
+}
+.form-input {
+  border-radius: 33px;
+}
+
 .card-description {
   color: white;
   text-decoration: none;
@@ -25,7 +39,12 @@ body {
   font-size: 1rem;
 }
 .card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 50px;
 }
@@ -36,6 +55,8 @@ body {
   width: 100%;
 }
 .gap-2 {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 .mt-3 .btn {
@@ -46,6 +67,18 @@ body {
 }
 .myCards {
   margin-bottom: 20px;
+}
+.navbar-brand {
+  position: absolute;
+}
+.ggg {
+  background-color: rgba(128, 128, 128, 0.274);
+  position: relative;
+  width: 112px;
+  height: 30px;
+  z-index: -1111;
+  -webkit-clip-path: polygon(100% 0, 100% 11%, 11% 100%, 0 100%);
+  clip-path: polygon(100% 0, 100% 11%, 11% 100%, 0 100%);
 }
 
 .elem::-webkit-scrollbar {
@@ -58,8 +91,14 @@ footer {
   right: 0;
 }
 .d-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .d-grid p {
@@ -78,9 +117,10 @@ footer {
   max-width: 200px;
   max-height: 46.5px;
 }
-main {
+.main {
   height: 100vh;
 }
+
 h4 {
   font-size: 21px;
   height: 50px;
@@ -89,6 +129,8 @@ h4 {
   position: fixed;
   top: 56px;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   background: white;
   z-index: 999;
@@ -102,6 +144,8 @@ h4 {
     display: none;
   }
   .mb-3 input {
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
     max-width: fit-content;
   }
 }
