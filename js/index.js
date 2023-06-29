@@ -26,6 +26,9 @@ class Cards {
   }
   createCard() {
     this.cardCount = 3;
+    if (window.screen.width < 576) {
+      this.cardCount = 12;
+    }
     let cardBody = document.getElementById(`card_cont`);
     let cardsDiv = document.createElement(`div`);
     let cardsColumn = document.createElement(`div`);
