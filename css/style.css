@@ -67,6 +67,7 @@ footer {
   margin-top: 0 !important;
   text-align: right;
 }
+
 .card img {
   max-height: 300px;
 }
@@ -74,7 +75,7 @@ footer {
   height: 475px;
 }
 .mb-3 input {
-  max-width: 239px;
+  max-width: 200px;
   max-height: 46.5px;
 }
 main {

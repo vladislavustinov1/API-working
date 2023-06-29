@@ -1,5 +1,4 @@
 class Cards {
-  cnt = 0;
   constructor(
     img,
     nameCard,
@@ -64,6 +63,7 @@ class Cards {
     buttonBlock.className = `d-grid gap-2`;
     cardsBody.append(buttonBlock);
 
+    cardsPrice.id = `pricing`;
     cardsPrice.textContent = `Price: ${this.priceCard[this.i]}$`;
     buttonBlock.append(cardsPrice);
     document
@@ -171,6 +171,8 @@ async function gotCardsByProduction() {
   );
   let brands = await api.json();
   console.log(brands);
+  brands.sort((a, b) => +b.price - +a.price);
+  console.log(brands);
   let resPrice = brands.map((y) => y.price);
   let resImg = brands.map((z) => z.image_link);
   let resDescr = brands.map((e) => e.description);
@@ -206,6 +208,8 @@ async function gotCardsByPrice() {
     `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=${prod}`
   );
   let brands = await api.json();
+  brands.sort((a, b) => +a.price - +b.price);
+  console.log(brands);
   let resPrice = brands.map((y) => +y.price);
   let resImg = brands.map((z) => z.image_link);
   let resDescr = brands.map((e) => e.description);
@@ -237,6 +241,76 @@ async function gotCardsByPrice() {
     card.createCardForPrice();
   }
   console.log(cardDelete.length);
+}
+async function gotCardsByIncrease() {
+  let brand = document.getElementById(`select-first`).value;
+  let prod = document.getElementById(`select-second`).value;
+  let cardDelete = document.getElementsByClassName(`myCards`);
+  let api = await fetch(
+    `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=${prod}`
+  );
+  let brands = await api.json();
+  console.log(brands);
+  brands.sort((a, b) => +b.price - +a.price);
+  console.log(brands);
+  let resPrice = brands.map((y) => y.price);
+  let resImg = brands.map((z) => z.image_link);
+  let resDescr = brands.map((e) => e.description);
+  let resName = brands.map((p) => p.name);
+  let resUrl = brands.map((f) => f.product_link);
+  if (api.ok) {
+    while (cardDelete.length > 0) {
+      cardDelete[0].remove();
+    }
+    let card = new Cards(
+      resImg,
+      resName,
+      resDescr,
+      resPrice,
+      brands,
+      0,
+      null,
+      0,
+      cardDelete,
+      resUrl
+    );
+    card.createCardsForProd();
+  }
+}
+async function gotCardsByDecrease() {
+  let brand = document.getElementById(`select-first`).value;
+  let prod = document.getElementById(`select-second`).value;
+  let cardDelete = document.getElementsByClassName(`myCards`);
+  let api = await fetch(
+    `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=${prod}`
+  );
+  let brands = await api.json();
+  console.log(brands);
+  brands.sort((a, b) => +a.price - +b.price);
+  console.log(brands);
+  let resPrice = brands.map((y) => y.price);
+  let resImg = brands.map((z) => z.image_link);
+  let resDescr = brands.map((e) => e.description);
+  let resName = brands.map((p) => p.name);
+  let resUrl = brands.map((f) => f.product_link);
+  if (api.ok) {
+    while (cardDelete.length > 0) {
+      cardDelete[0].remove();
+    }
+    let card = new Cards(
+      resImg,
+      resName,
+      resDescr,
+      resPrice,
+      brands,
+      0,
+      null,
+      0,
+      cardDelete,
+      resUrl
+    );
+    card.createCardsForProd();
+  }
 }
 document
   .querySelector(".form-input")

@@ -100,9 +100,7 @@
           <!-- price input -->
           <div class="col-sm">
             <div class="mb-3">
-              <label for="" class="form-label" id="brand"
-                >From the price(От значения)</label
-              >
+              <label for="" class="form-label" id="brand">From the price</label>
               <input
                 class="form-input form-select-lg"
                 name=""
@@ -113,15 +111,35 @@
           </div>
           <div class="col-sm">
             <div class="mb-3">
-              <label for="" class="form-label" id="brand"
-                >Up to price(До значения)</label
-              >
+              <label for="" class="form-label" id="brand">Up to price</label>
               <input
                 class="form-input form-select-lg"
                 name=""
                 id="select-price"
                 type="text"
               />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="gap-2 mt-3">
+              <button
+                type="button"
+                name=""
+                id=""
+                class="btn btn-search btn-primary"
+                onclick="gotCardsByIncrease()"
+              >
+                Filter all from increase
+              </button>
+              <button
+                type="button"
+                name=""
+                id=""
+                class="btn btn-search btn-primary"
+                onclick="gotCardsByDecrease()"
+              >
+                Filter all from decrease
+              </button>
             </div>
           </div>
           <!-- button selection -->
@@ -151,6 +169,7 @@
       </div>
       <div class="container mt-5">
         <div class="row" id="card_cont"></div>
+        <div class="result_container"></div>
       </div>
     </main>
     <!-- footer -->
